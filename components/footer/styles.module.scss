@@ -1,0 +1,33 @@
+@import '../../src/styles/base.scss';
+.footer {
+  background: #f8f8f8;
+  &_container {
+    position: relative;
+    width: 100%;
+    display: grid;
+    gap: 3rem;
+    padding: 1rem;
+  }
+  img {
+    width: 100px;
+    height: 40px;
+  }
+  &_links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    ul {
+      padding: 5px;
+      li {
+        font-size: 12px;
+        a {
+          color: #666;
+          line-height: 24px;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
