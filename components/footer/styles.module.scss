@@ -54,4 +54,31 @@
       }
     }
   }
+  &__flex {
+    display: flex;
+    margin-top: 10px;
+  }
+  &__newsletter {
+    input {
+      flex: 1;
+      outline: none;
+      border: 1px solid #999;
+      height: 36px;
+      font-size: 14px;
+      padding-left: 5px;
+    }
+    button {
+      width: 150px;
+      margin-left: 5px;
+    }
+    p {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #666;
+      a {
+        color: $orange-color;
+        text-decoration: underline;
+      }
+    }
+  }
 }
