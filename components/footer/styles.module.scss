@@ -11,12 +11,20 @@
     width: 100px;
     height: 40px;
   }
+  h3 {
+    font-size: 12px;
+    font-weight: 700;
+    color: #333;
+  }
   &_links {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     ul {
       padding: 5px;
+      b {
+        text-transform: uppercase;
+      }
       li {
         font-size: 12px;
         a {
@@ -24,6 +32,23 @@
           line-height: 24px;
           &:hover {
             text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  &__socials {
+    section {
+      ul {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        li {
+          font-size: 2rem;
+          color: #454545;
+          &:hover {
+            color: $orange-color;
           }
         }
       }

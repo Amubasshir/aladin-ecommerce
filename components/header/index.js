@@ -1,4 +1,3 @@
-import Add from './Add';
 import Main from './Main';
 import styles from './styles.module.scss';
 import Top from './Top';
@@ -6,7 +5,7 @@ import Top from './Top';
 const Header = () => {
   return (
     <header className={styles.header}>
-      <Add />
+      {/* <Add /> */}
       <Top />
       <Main />
     </header>
