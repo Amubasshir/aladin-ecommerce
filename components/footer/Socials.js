@@ -12,7 +12,7 @@ export default function Socials() {
   return (
     <div className={styles.footer__socials}>
       <section>
-        <h2>Stay connected</h2>
+        <h3>STAY CONNECTED</h3>
         <ul>
           <li>
             <a href="http://" target="_blank" rel="noopener noreferrer">

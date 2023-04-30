@@ -9,7 +9,7 @@ export default function NewsLetter() {
         <button className={styles.btn_primary}>SUBSCRIBE</button>
       </div>
       <p>
-        By clicking the SUBSCRIBE button, you are agreeing to our {''}{' '}
+        By clicking the SUBSCRIBE button, you are agreeing to our
         <Link href="">Privacy & Cookie Policy</Link>
       </p>
     </div>

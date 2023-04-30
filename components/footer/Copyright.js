@@ -3,7 +3,7 @@ import { IoLocationSharp } from 'react-icons/io5';
 import styles from './styles.module.scss';
 const Copyright = () => {
   return (
-    <div className={styles.footer__copyright}>
+    <div className={styles.footer_copyright}>
       <section>
         &copy;{new Date().getFullYear()} Aladin. All right reserved.
       </section>
@@ -16,7 +16,9 @@ const Copyright = () => {
           ))}
           <li>
             <a>
-              <IoLocationSharp /> Bangladesh
+              <span>
+                <IoLocationSharp /> Bangladesh
+              </span>
             </a>
           </li>
         </ul>
