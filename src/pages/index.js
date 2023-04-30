@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useSession } from 'next-auth/react';
 import { Inter } from 'next/font/google';
 import Footer from '../../components/footer';
 import Header from '../../components/header';
@@ -6,10 +7,11 @@ import Header from '../../components/header';
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home({ country }) {
-  console.log(country);
+  const { data: session } = useSession();
   return (
     <div>
       <Header country={country} />
+      {session ? 'you are logged in' : 'you are not logged in'}
       <Footer country={country} />
     </div>
   );
