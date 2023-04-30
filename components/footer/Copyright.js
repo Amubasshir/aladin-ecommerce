@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { IoLocationSharp } from 'react-icons/io5';
 import styles from './styles.module.scss';
-const Copyright = () => {
+const Copyright = ({ country }) => {
   return (
     <div className={styles.footer_copyright}>
       <section>
@@ -17,7 +17,7 @@ const Copyright = () => {
           <li>
             <a>
               <span>
-                <IoLocationSharp /> Bangladesh
+                {country.name} <IoLocationSharp />
               </span>
             </a>
           </li>

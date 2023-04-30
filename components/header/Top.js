@@ -4,9 +4,9 @@ import { BsSuitHeart } from 'react-icons/bs';
 import { CiMobile1 } from 'react-icons/ci';
 import { MdSecurity } from 'react-icons/md';
 import { RiAccountPinCircleLine, RiArrowDropDownFill } from 'react-icons/ri';
-import styles from './styles.module.scss';
 import UserMenu from './UserMenu';
-const Top = () => {
+import styles from './styles.module.scss';
+const Top = ({ country }) => {
   const [loggedIn, setLoggedIn] = useState(true);
   const [visible, setVisible] = useState(false);
   return (
@@ -19,11 +19,8 @@ const Top = () => {
             <span>App</span>
           </li>
           <li className={styles.li}>
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Flag_of_Bangladesh.svg/1200px-Flag_of_Bangladesh.svg.png"
-              alt=""
-            />
-            <span>BD /tk</span>
+            <img src={country.flag} alt="" />
+            <span>{country.name} /tk</span>
           </li>
           <li className={styles.li}>
             <MdSecurity />
