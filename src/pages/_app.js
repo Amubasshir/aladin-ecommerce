@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }) {
           content="Aladin: Quality online service at affordable price"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="https://i.ibb.co/d4kdVcP/aladin-headdd.png" />
       </Head>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>

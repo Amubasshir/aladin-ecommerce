@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { BsSuitHeart } from 'react-icons/bs';
+import { CiMobile1 } from 'react-icons/ci';
 import { MdSecurity } from 'react-icons/md';
 import { RiAccountPinCircleLine, RiArrowDropDownFill } from 'react-icons/ri';
 import styles from './styles.module.scss';
@@ -14,6 +15,10 @@ const Top = () => {
         <div></div>
         <ul className={styles.top_list}>
           <li className={styles.li}>
+            <CiMobile1 />
+            <span>App</span>
+          </li>
+          <li className={styles.li}>
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Flag_of_Bangladesh.svg/1200px-Flag_of_Bangladesh.svg.png"
               alt=""
@@ -24,6 +29,7 @@ const Top = () => {
             <MdSecurity />
             <span>Buyer Protection</span>
           </li>
+
           <li className={styles.li}>
             <span>Customer Service</span>
           </li>

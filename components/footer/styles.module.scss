@@ -66,6 +66,15 @@
       height: 36px;
       font-size: 14px;
       padding-left: 5px;
+      border-radius: 3px;
+    }
+    &__copyright {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 28px;
+      background-color: red;
     }
     button {
       width: 150px;
