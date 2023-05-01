@@ -8,11 +8,11 @@ const inter = Inter({ subsets: ['latin'] });
 
 export default function Home({ country }) {
   const { data: session } = useSession();
-  console.log(session);
+
   return (
     <div>
       <Header country={country} />
-      {session ? 'you are logged in' : 'you are not logged in'}
+
       <Footer country={country} />
     </div>
   );
