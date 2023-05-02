@@ -1,7 +1,6 @@
 import { MongoDBAdapter } from '@next-auth/mongodb-adapter';
 import NextAuth from 'next-auth';
 import Auth0Provider from 'next-auth/providers/auth0';
-import FacebookProvider from 'next-auth/providers/facebook';
 import GitHubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
 import TwitterProvider from 'next-auth/providers/twitter';
@@ -20,10 +19,7 @@ export default NextAuth({
       clientId: process.env.TWITTER_CONSUMER_KEY,
       clientSecret: process.env.TWITTER_CONSUMER_SECRET,
     }),
-    FacebookProvider({
-      clientId: process.env.FACEBOOK_ID,
-      clientSecret: process.env.FACEBOOK_SECRET,
-    }),
+
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
@@ -35,7 +31,7 @@ export default NextAuth({
     }),
   ],
   pages: {
-    // signIn: '/signin',
+    signIn: '/signin',
   },
   session: {
     strategy: 'jwt',
