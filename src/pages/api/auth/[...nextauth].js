@@ -10,6 +10,10 @@ export default NextAuth({
   adapter: MongoDBAdapter(clientPromise),
   providers: [
     // OAuth authentication providers...
+    GoogleProvider({
+      clientId: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_SECRET,
+    }),
     GitHubProvider({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
@@ -20,10 +24,6 @@ export default NextAuth({
       clientSecret: process.env.TWITTER_CONSUMER_SECRET,
     }),
 
-    GoogleProvider({
-      clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET,
-    }),
     Auth0Provider({
       clientId: process.env.AUTH0_CLIENT_ID,
       clientSecret: process.env.AUTH0_CLIENT_SECRET,
