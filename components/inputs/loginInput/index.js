@@ -1,4 +1,4 @@
-import { useField } from 'formik';
+import { ErrorMessage, useField } from 'formik';
 import { BiUser } from 'react-icons/bi';
 import { IoKeyOutline } from 'react-icons/io5';
 import { SiMinutemailer } from 'react-icons/si';
@@ -27,7 +27,12 @@ const LoginInput = ({ icon, placeholder, ...props }) => {
         {...field}
         {...props}
       />
-      {}
+      {meta.touched && meta.error && (
+        <div className={styles.error__popup}>
+          <span></span>
+          <ErrorMessage name={field.name} />
+        </div>
+      )}
     </div>
   );
 };
