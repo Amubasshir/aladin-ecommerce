@@ -1,0 +1,40 @@
+.button {
+  position: relative;
+  border: none;
+  padding-right: 30px;
+  outline: none;
+  width: 220px;
+  height: 55px;
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 18px;
+  color: #fff;
+  background: $orange-color;
+  display: block;
+  border-radius: 55px;
+  cursor: pointer;
+
+  .svg__wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 7.5px;
+    right: 7px;
+    background: $gray-color;
+    svg {
+      fill: $orange-color;
+    }
+  }
+}
+.button:hover .svg__wrap {
+  transition: transform 0.3s ease;
+  transform: translateX(5px);
+}
+
+.button .svg__wrap {
+  transition: transform 0.3s ease;
+  transform: translateX(0);
+}

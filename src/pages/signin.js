@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { BiLeftArrowAlt } from 'react-icons/bi';
 import * as Yup from 'yup';
+import CircleIconButton from '../../components/buttons/cIbtn';
 import Footer from '../../components/footer';
 import Header from '../../components/header';
 import LoginInput from '../../components/inputs/loginInput';
@@ -67,6 +68,10 @@ const signin = () => {
                     placeholder="Enter your password here"
                     onChange={handleChangeEmail}
                   />
+                  <CircleIconButton type="submit" text="Sign in" />
+                  <div className={styles.forgot}>
+                    <a href="/">Forget password ?...</a>
+                  </div>
                 </Form>
               )}
             </Formik>
