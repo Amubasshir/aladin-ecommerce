@@ -48,13 +48,14 @@
 .error__popup {
   position: absolute;
   top: -70px;
-  background: $error-color;
+  background-color: transparent;
+  border: 2px solid red;
   height: 60px;
   width: 100%;
   border-radius: 20px;
   display: grid;
   place-items: center;
-  color: #fff;
+  color: $error-color;
   font-weight: 600;
   font-size: 14px;
   padding: 10px;

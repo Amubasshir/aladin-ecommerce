@@ -13,22 +13,54 @@ import styles from '../../styles/signin.module.scss';
 const initialValues = {
   login_email: '',
   login_password: '',
+  full_name: '',
+  email: '',
+  password: '',
+  conf_password: '',
 };
 
 export default function signin({ providers }) {
-  console.log(providers);
   const [user, setUser] = useState(initialValues);
-  const { login_email, login_password } = user;
+  const {
+    login_email,
+    login_password,
+    full_name,
+    email,
+    password,
+    conf_password,
+  } = user;
   const handleChangeEmail = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
-  console.log(user);
+
   const loginValidation = Yup.object({
     login_email: Yup.string()
       .required('Email address is required')
       .email('Please enter a valid email address'),
     login_password: Yup.string().required('Please enter a valid password'),
+  });
+  const registerValidation = Yup.object({
+    full_name: Yup.string()
+      .required("What's your name?")
+      .min(2, 'First name must be at between 2 and 16 characters')
+      .max(16, 'First name must be at between 2 and 16 characters')
+      .matches(/^[aA-zZ]/, 'Number and special characters are not allowed'),
+
+    email: Yup.string()
+      .required("You'll need this email to log in and resetting your password")
+      .email('Enter a valid email address'),
+
+    password: Yup.string()
+      .required(
+        'Please enter a password that is at least 6 characters long and includes a combination of letters, numbers, and special characters'
+      )
+      .min(6, 'Password must be at least 6 characters')
+      .max(36, 'Password must be at most 36 characters'),
+
+    conf_password: Yup.string()
+      .required('Confirm your password')
+      .oneOf([Yup.ref('password')], 'Password must be matched'),
   });
   return (
     <>
@@ -60,7 +92,7 @@ export default function signin({ providers }) {
                     type="text"
                     name="login_email"
                     icon="email"
-                    placeholder="Email Address"
+                    placeholder="Email address"
                     onChange={handleChangeEmail}
                   />
                   <LoginInput
@@ -93,6 +125,56 @@ export default function signin({ providers }) {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+        <div className={styles.login__container}>
+          <div className={styles.login__form}>
+            <h1>Sign up</h1>
+            <p>Get access to enjoy the best E-shopping experience.</p>
+            <Formik
+              enableReinitialize
+              initialValues={{
+                full_name,
+                email,
+                password,
+                conf_password,
+              }}
+              validationSchema={registerValidation}
+            >
+              {(form) => (
+                <Form>
+                  <LoginInput
+                    type="text"
+                    name="full_name"
+                    icon="user"
+                    placeholder="Full name"
+                    onChange={handleChangeEmail}
+                  />
+                  <LoginInput
+                    type="text"
+                    name="email"
+                    icon="email"
+                    placeholder="Enter your email address"
+                    onChange={handleChangeEmail}
+                  />
+                  <LoginInput
+                    type="password"
+                    name="password"
+                    icon="password"
+                    placeholder="Enter your password "
+                    onChange={handleChangeEmail}
+                  />
+                  <LoginInput
+                    type="password"
+                    name="conf_password"
+                    icon="password"
+                    placeholder="Please retype your password"
+                    onChange={handleChangeEmail}
+                  />
+                  <CircleIconButton type="submit" text="Sign up" />
+                </Form>
+              )}
+            </Formik>
           </div>
         </div>
       </div>
