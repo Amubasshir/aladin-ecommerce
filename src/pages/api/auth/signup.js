@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import nc from 'next-connect';
-import User from '../../../../models/user';
+import { activateEmailTemplate } from '../../../../emails/activateEmailTemplate';
+import User from '../../../../models/User';
 import db from '../../../../utils/db';
 import { sendEmail } from '../../../../utils/sendEmails';
 import { createActivationToken } from '../../../../utils/token';
@@ -32,7 +33,7 @@ handler.post(async (req, res) => {
       id: addedUser._id.toString(),
     });
     const url = `${process.env.BASE_URL}/activate/${activation_token}`;
-    sendEmail(email, url, '', 'Activate your account');
+    sendEmail(email, url, '', 'Activate your account', activateEmailTemplate);
     await db.disconnectDb();
     return res.json({
       message: 'Register success! Please activate your email to start.',
