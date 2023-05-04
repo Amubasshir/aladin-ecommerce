@@ -36,3 +36,11 @@ $shadow-1: rgba(99, 99, 99, 0.2) 0px 1px 8px 0px;
   align-items: center;
   gap: 5px;
 }
+.error {
+  padding: 1rem;
+  color: $error-color;
+}
+.success {
+  padding: 1rem;
+  color: $success-color;
+}
