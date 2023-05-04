@@ -9,6 +9,7 @@ import CircleIconButton from '../../components/buttons/cIbtn';
 import Footer from '../../components/footer';
 import Header from '../../components/header';
 import LoginInput from '../../components/inputs/loginInput';
+import DotLoaderSpinner from '../../components/loaders/dotLoader';
 import styles from '../../styles/signin.module.scss';
 
 const initialValues = {
@@ -85,6 +86,7 @@ export default function signin({ providers }) {
   };
   return (
     <>
+      {loading && <DotLoaderSpinner loading={loading} />}
       <Header country="country" />
       <div className={styles.login}>
         <div className={styles.login__container}>
