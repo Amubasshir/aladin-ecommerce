@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { Form, Formik } from 'formik';
 import { getProviders, signIn } from 'next-auth/react';
 import Link from 'next/link';
@@ -13,21 +14,26 @@ import styles from '../../styles/signin.module.scss';
 const initialValues = {
   login_email: '',
   login_password: '',
-  full_name: '',
+  name: '',
   email: '',
   password: '',
   conf_password: '',
+  success: '',
+  error: '',
 };
 
 export default function signin({ providers }) {
+  const [loading, setLoading] = useState(false);
   const [user, setUser] = useState(initialValues);
   const {
     login_email,
     login_password,
-    full_name,
+    name,
     email,
     password,
     conf_password,
+    success,
+    error,
   } = user;
   const handleChangeEmail = (e) => {
     const { name, value } = e.target;
@@ -41,7 +47,7 @@ export default function signin({ providers }) {
     login_password: Yup.string().required('Please enter a valid password'),
   });
   const registerValidation = Yup.object({
-    full_name: Yup.string()
+    name: Yup.string()
       .required("What's your name?")
       .min(2, 'First name must be at between 2 and 16 characters')
       .max(16, 'First name must be at between 2 and 16 characters')
@@ -62,6 +68,21 @@ export default function signin({ providers }) {
       .required('Confirm your password')
       .oneOf([Yup.ref('password')], 'Password must be matched'),
   });
+  const signUpHandler = async () => {
+    try {
+      setLoading(true);
+      const { data } = await axios.post('/api/auth/signup', {
+        name,
+        email,
+        password,
+      });
+      setUser({ ...user, error: '', success: data.message });
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      setUser({ ...user, success: '', error: error.response.data.message });
+    }
+  };
   return (
     <>
       <Header country="country" />
@@ -134,18 +155,21 @@ export default function signin({ providers }) {
             <Formik
               enableReinitialize
               initialValues={{
-                full_name,
+                name,
                 email,
                 password,
                 conf_password,
               }}
               validationSchema={registerValidation}
+              onSubmit={() => {
+                signUpHandler();
+              }}
             >
               {(form) => (
                 <Form>
                   <LoginInput
                     type="text"
-                    name="full_name"
+                    name="name"
                     icon="user"
                     placeholder="Full name"
                     onChange={handleChangeEmail}
@@ -175,6 +199,8 @@ export default function signin({ providers }) {
                 </Form>
               )}
             </Formik>
+            <div>{success && <span>{success}</span>}</div>
+            <div>{error && <span>{error}</span>}</div>
           </div>
         </div>
       </div>
