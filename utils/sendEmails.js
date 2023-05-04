@@ -35,12 +35,18 @@ export const sendEmail = (to, url, txt, subject, template) => {
       accessToken,
     },
   });
-  const mailOptions = {
+  let mailOptions = {
     from: SENDER_EMAIL_ADDRESS,
     to: to,
     subject: subject,
-    html: template(to, url),
+    html: '',
   };
+  if (template) {
+    mailOptions.html = template(to, url);
+  } else {
+    console.error('Unknown email template');
+    return;
+  }
   smtpTransport.sendMail(mailOptions, (err, infos) => {
     if (err) return err;
     return infos;
