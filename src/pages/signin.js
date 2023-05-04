@@ -1,7 +1,13 @@
 import axios from 'axios';
 import { Form, Formik } from 'formik';
-import { getProviders, signIn } from 'next-auth/react';
+import {
+  getCsrfToken,
+  getProviders,
+  getSession,
+  signIn,
+} from 'next-auth/react';
 import Link from 'next/link';
+import Router from 'next/router';
 import { useState } from 'react';
 import { BiLeftArrowAlt } from 'react-icons/bi';
 import * as Yup from 'yup';
@@ -21,9 +27,10 @@ const initialValues = {
   conf_password: '',
   success: '',
   error: '',
+  login_error: '',
 };
 
-export default function signin({ providers }) {
+export default function signin({ providers, callbackUrl, csrfToken }) {
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState(initialValues);
   const {
@@ -35,6 +42,7 @@ export default function signin({ providers }) {
     conf_password,
     success,
     error,
+    login_error,
   } = user;
   const handleChangeEmail = (e) => {
     const { name, value } = e.target;
@@ -79,9 +87,35 @@ export default function signin({ providers }) {
       });
       setUser({ ...user, error: '', success: data.message });
       setLoading(false);
+      setTimeout(async () => {
+        let options = {
+          redirect: false,
+          email: email,
+          password: password,
+        };
+        const res = await signIn('credentials', options);
+        Router.push('/');
+      }, 1000);
     } catch (error) {
       setLoading(false);
       setUser({ ...user, success: '', error: error.response.data.message });
+    }
+  };
+  const signInHandler = async () => {
+    setLoading(true);
+    let options = {
+      redirect: false,
+      email: login_email,
+      password: login_password,
+    };
+    const res = await signIn('credentials', options);
+    setUser({ ...user, success: '', error: '' });
+    setLoading(false);
+    if (res?.error) {
+      setLoading(false);
+      setUser({ ...user, login_error: res?.error });
+    } else {
+      return Router.push(callbackUrl || '/');
     }
   };
   return (
@@ -108,9 +142,14 @@ export default function signin({ providers }) {
                 login_password,
               }}
               validationSchema={loginValidation}
+              onSubmit={() => {
+                signInHandler();
+              }}
             >
               {(form) => (
-                <Form>
+                <Form method="post" action="/api/auth/signin/email">
+                  <input type="hidden" />
+                  name='csrfToken' defaultValue={csrfToken}
                   <LoginInput
                     type="text"
                     name="login_email"
@@ -126,6 +165,9 @@ export default function signin({ providers }) {
                     onChange={handleChangeEmail}
                   />
                   <CircleIconButton type="submit" text="Sign in" />
+                  {login_error && (
+                    <span className={styles.error}>{login_error}</span>
+                  )}
                   <div className={styles.forgot}>
                     <a href="/">Forget password ?</a>
                   </div>
@@ -135,17 +177,22 @@ export default function signin({ providers }) {
             <div className={styles.login__socials}>
               <span className={styles.or}>Or Continue With</span>
               <div className={styles.login__socials_wrap}>
-                {providers.map((provider) => (
-                  <div key={provider.name}>
-                    <button
-                      className={styles.social__btn}
-                      onClick={() => signIn(provider.id)}
-                    >
-                      <img src={`../../icons/${provider.name}.svg`} alt="" />
-                      Sign in with {provider.name}
-                    </button>
-                  </div>
-                ))}
+                {providers.map((provider) => {
+                  if (provider.name === 'Credentials') {
+                    return;
+                  }
+                  return (
+                    <div key={provider.name}>
+                      <button
+                        className={styles.social__btn}
+                        onClick={() => signIn(provider.id)}
+                      >
+                        <img src={`../../icons/${provider.name}.svg`} alt="" />
+                        Sign in with {provider.name}
+                      </button>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -201,8 +248,10 @@ export default function signin({ providers }) {
                 </Form>
               )}
             </Formik>
-            <div>{success && <span>{success}</span>}</div>
-            <div>{error && <span>{error}</span>}</div>
+            <div>
+              {success && <span className={styles.success}>{success}</span>}
+            </div>
+            <div>{error && <span className={styles.error}>{error}</span>}</div>
           </div>
         </div>
       </div>
@@ -212,8 +261,22 @@ export default function signin({ providers }) {
 }
 
 export async function getServerSideProps(context) {
+  const { req, query } = context;
+  const session = await getSession({ req });
+  const { callbackUrl } = query;
+
+  if (session) {
+    return {
+      redirect: {
+        destination: callbackUrl,
+      },
+    };
+  }
+
+  const csrfToken = await getCsrfToken(context);
+
   const providers = Object.values(await getProviders());
   return {
-    props: { providers },
+    props: { providers, csrfToken, callbackUrl },
   };
 }
