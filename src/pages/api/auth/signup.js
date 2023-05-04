@@ -2,6 +2,7 @@ import bcrypt from 'bcrypt';
 import nc from 'next-connect';
 import User from '../../../../models/user';
 import db from '../../../../utils/db';
+import { sendEmail } from '../../../../utils/sendEmails';
 import { createActivationToken } from '../../../../utils/token';
 import validateEmail from '../../../../utils/validation';
 const handler = nc();
@@ -30,8 +31,8 @@ handler.post(async (req, res) => {
     const activation_token = createActivationToken({
       id: addedUser._id.toString(),
     });
-    console.log(activation_token);
-    res.send(activation_token);
+    const url = `${process.env.BASE_URL}/activate/${activation_token}`;
+    sendEmail(email, url, '', 'Activate your account');
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
