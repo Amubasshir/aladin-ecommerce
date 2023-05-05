@@ -3,18 +3,23 @@ import { useSession } from 'next-auth/react';
 import { Inter } from 'next/font/google';
 import Footer from '../../components/footer';
 import Header from '../../components/header';
-
+import Main from '../../components/home/main';
+import styles from '../../styles/Home.module.scss';
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home({ country }) {
   const { data: session } = useSession();
 
   return (
-    <div>
+    <>
       <Header country={country} />
-
+      <div className={styles.home}>
+        <div className={styles.container}>
+          <Main />
+        </div>
+      </div>
       <Footer country={country} />
-    </div>
+    </>
   );
 }
 
