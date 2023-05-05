@@ -18,3 +18,200 @@ export const offersArray = [
     discount: '11',
   },
 ];
+export const menuArrays = [
+  {
+    name: 'Laptop',
+    icon: '',
+    link: '',
+    subMenu: [
+      {
+        name: '',
+        link: '',
+      },
+    ],
+    brands: [],
+    images: [],
+  },
+  {
+    name: '',
+    icon: '',
+    link: '',
+    subMenu: [
+      {
+        name: '',
+        link: '',
+      },
+    ],
+    brands: [],
+    images: [],
+  },
+  {
+    name: '',
+    icon: '',
+    link: '',
+    subMenu: [
+      {
+        name: '',
+        link: '',
+      },
+    ],
+    brands: [],
+    images: [],
+  },
+  {
+    name: '',
+    icon: '',
+    link: '',
+    subMenu: [
+      {
+        name: '',
+        link: '',
+      },
+    ],
+    brands: [],
+    images: [],
+  },
+  {
+    name: '',
+    icon: '',
+    link: '',
+    subMenu: [
+      {
+        name: '',
+        link: '',
+      },
+    ],
+    brands: [],
+    images: [],
+  },
+  {
+    name: '',
+    icon: '',
+    link: '',
+    subMenu: [
+      {
+        name: '',
+        link: '',
+      },
+    ],
+    brands: [],
+    images: [],
+  },
+  {
+    name: '',
+    icon: '',
+    link: '',
+    subMenu: [
+      {
+        name: '',
+        link: '',
+      },
+    ],
+    brands: [],
+    images: [],
+  },
+  {
+    name: '',
+    icon: '',
+    link: '',
+    subMenu: [
+      {
+        name: '',
+        link: '',
+      },
+    ],
+    brands: [],
+    images: [],
+  },
+  {
+    name: '',
+    icon: '',
+    link: '',
+    subMenu: [
+      {
+        name: '',
+        link: '',
+      },
+    ],
+    brands: [],
+    images: [],
+  },
+  {
+    name: '',
+    icon: '',
+    link: '',
+    subMenu: [
+      {
+        name: '',
+        link: '',
+      },
+    ],
+    brands: [],
+    images: [],
+  },
+  {
+    name: '',
+    icon: '',
+    link: '',
+    subMenu: [
+      {
+        name: '',
+        link: '',
+      },
+    ],
+    brands: [],
+    images: [],
+  },
+  {
+    name: '',
+    icon: '',
+    link: '',
+    subMenu: [
+      {
+        name: '',
+        link: '',
+      },
+    ],
+    brands: [],
+    images: [],
+  },
+  {
+    name: '',
+    icon: '',
+    link: '',
+    subMenu: [
+      {
+        name: '',
+        link: '',
+      },
+    ],
+    brands: [],
+    images: [],
+  },
+  {
+    name: '',
+    icon: '',
+    link: '',
+    subMenu: [
+      {
+        name: '',
+        link: '',
+      },
+    ],
+    brands: [],
+    images: [],
+  },
+  {
+    name: '',
+    icon: '',
+    link: '',
+    subMenu: [
+      {
+        name: '',
+        link: '',
+      },
+    ],
+    brands: [],
+    images: [],
+  },
+];
