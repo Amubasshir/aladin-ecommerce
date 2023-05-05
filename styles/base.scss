@@ -1,5 +1,6 @@
 $blue_color: #2f82ff;
 $gray_color: #f8f8f8;
+$yellow-color: #fac80f;
 $orange-color: #f85606;
 $light-error-color: #fd010169;
 $error-color: #ed4337;
@@ -67,7 +68,7 @@ $shadow-1: rgba(99, 99, 99, 0.2) 0px 1px 8px 0px;
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
+  background: transparent !important;
 
   display: flex;
   justify-content: center;
@@ -96,26 +97,50 @@ $shadow-1: rgba(99, 99, 99, 0.2) 0px 1px 8px 0px;
     width: 10px !important;
     height: 10px !important;
   }
-  .swiper-button-prev,
-  .swiper-button-next {
-    color: #fff !important;
-    transform: scale(0.4) !important;
-    width: 80px;
-    height: 80px;
-    border-radius: 80px;
-    transition: 0.2s;
-    background: #6666666d;
-    display: none;
-    place-items: center;
-  }
-  .swiper-button-prev {
-    left: -23px;
-  }
-  .swiper-button-next {
-    right: -23px;
-  }
 }
 .offers_swiper {
+  max-width: 550px;
+  transform: translate(30%);
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    width: 150px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: $shadow-1;
+    &:hover {
+      transform: scale(1.05);
+      transition: 0.5s;
+    }
+    span {
+      width: 80px !important;
+      // border-radius: 10px !important;
+      position: absolute;
+      color: #ffffff;
+      bottom: 40px;
+      height: 25px;
+      border-radius: 50px;
+      font-size: 17px;
+      font-weight: 600;
+      background: $orange-color;
+    }
+  }
+
+  .swiper-slide img {
+    width: 100%;
+    height: 100% !important;
+    object-fit: cover !important;
+    background-color: transparent !important;
+  }
+
   .swiper-pagination {
     display: none;
   }

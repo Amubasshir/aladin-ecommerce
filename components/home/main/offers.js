@@ -3,7 +3,9 @@ import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import styles from './styles.module.scss';
 
+import Link from 'next/link';
 import { Pagination } from 'swiper';
+import { offersArray } from '../../../data/home';
 
 export default function Offers() {
   return (
@@ -17,9 +19,14 @@ export default function Offers() {
         modules={[Pagination]}
         className="offers_swiper"
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
+        {offersArray.map((offer) => (
+          <SwiperSlide>
+            <Link href="/">
+              <img src={offer.image} alt="" />
+            </Link>
+            <span>$ {offer.price}</span>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
