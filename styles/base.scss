@@ -80,7 +80,8 @@ $shadow-1: rgba(99, 99, 99, 0.2) 0px 1px 8px 0px;
   height: 100%;
   object-fit: cover;
 }
-.mainSwiper {
+.mainSwiper,
+.offers_swiper {
   .swiper-slide img {
     height: 300px !important;
     border-radius: 10px;
@@ -92,8 +93,8 @@ $shadow-1: rgba(99, 99, 99, 0.2) 0px 1px 8px 0px;
   }
   .swiper-pagination-bullet-active {
     background: #f85606 !important;
-    width: 12px !important;
-    height: 12px !important;
+    width: 10px !important;
+    height: 10px !important;
   }
   .swiper-button-prev,
   .swiper-button-next {
@@ -112,6 +113,11 @@ $shadow-1: rgba(99, 99, 99, 0.2) 0px 1px 8px 0px;
   }
   .swiper-button-next {
     right: -23px;
+  }
+}
+.offers_swiper {
+  .swiper-pagination {
+    display: none;
   }
 }
 
