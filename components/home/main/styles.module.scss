@@ -11,7 +11,7 @@
     background: #fff;
     border-radius: 10px;
     box-shadow: $shadow-1;
-    height: 560px;
+    height: 580px;
   }
   .header {
     grid-area: header;
@@ -29,16 +29,20 @@
   }
   .offers {
     grid-area: offers;
+    overflow: hidden;
     background: #fff;
     border-radius: 10px;
     box-shadow: $shadow-1;
-    height: 200px;
+    height: 220px;
+    background: url('https://i.ibb.co/1fQhV8g/o1.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   .user {
     grid-area: user;
     background: #fff;
     border-radius: 10px;
     box-shadow: $shadow-1;
-    height: 510px;
+    height: 530px;
   }
 }
