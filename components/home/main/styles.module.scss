@@ -63,22 +63,111 @@
     box-shadow: $shadow-1;
     height: 300px;
   }
+
   .offers {
     grid-area: offers;
     overflow: hidden;
     background: #fff;
     border-radius: 10px;
-    box-shadow: $shadow-1;
     height: 220px;
     background: url('https://i.ibb.co/1fQhV8g/o1.webp');
     background-repeat: no-repeat;
     background-size: cover;
   }
   .user {
+    position: relative;
     grid-area: user;
     background: #fff;
     border-radius: 10px;
     box-shadow: $shadow-1;
     height: 530px;
+    &__header {
+    }
+    &__container {
+      padding: 1rem;
+    }
+    &__infos {
+      position: absolute;
+      top: 1rem;
+      left: 50%;
+      transform: translate(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      img {
+        width: 80px;
+        height: 80px;
+        border-radius: 100%;
+        box-shadow: $shadow-1;
+      }
+      h4 {
+        margin-top: 1px;
+        text-transform: capitalize;
+      }
+      &_btns {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        button {
+          width: 100px;
+          height: 35px;
+          border-radius: 20px;
+          cursor: pointer;
+          font-weight: 600;
+          &:first-of-type {
+            background: linear-gradient($orange-color, #fd55017b);
+            color: #fff;
+          }
+          &:last-of-type {
+            color: #555;
+          }
+        }
+      }
+    }
+    &__links {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      li {
+        width: 44px;
+        height: 44px;
+        background: $gray-color;
+        border-radius: 100%;
+        display: grid;
+        place-items: center;
+        transition: all 0.2s;
+        svg {
+          width: 100%;
+          height: 100%;
+          stroke: $orange-color;
+        }
+        &:hover {
+          background: $orange-color;
+          svg {
+            stroke: #fff;
+          }
+        }
+        &:nth-last-child(2),
+        &:nth-last-child(1) {
+          svg {
+            fill: $orange-color;
+          }
+          &:hover {
+            svg {
+              fill: #fff;
+            }
+          }
+        }
+      }
+    }
+    &__footer {
+      position: absolute;
+      bottom: 0;
+      transform: rotate(180deg);
+    }
   }
 }

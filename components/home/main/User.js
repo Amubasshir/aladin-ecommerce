@@ -16,17 +16,21 @@ export default function User() {
   const { data: session } = useSession();
   return (
     <div className={styles.user}>
-      <img src="https://i.ibb.co/60S0Tjf/u1.webp" alt="" />
+      <img
+        src="https://i.ibb.co/60S0Tjf/u1.webp"
+        alt=""
+        className={styles.user__header}
+      />
       <div className={styles.user__container}>
         {session ? (
           <div className={styles.user__infos}>
             <img src={session.user.image} alt="" />
-            <h4>{session.user.name}</h4>
+            <h3>{session.user.name}</h3>
           </div>
         ) : (
           <div className={styles.user__infos}>
             <img src="https://i.ibb.co/J3Df2GZ/avatar.png" alt="" />
-            <div className={styles.user__infos_btn}>
+            <div className={styles.user__infos_btns}>
               <button>Register</button>
               <button>Log in</button>
             </div>
@@ -69,7 +73,7 @@ export default function User() {
             Navigation={true}
             modules={[EffectCards, Navigation]}
             className="userMenu__swiper"
-            style={{ maxWidth: '180px' }}
+            style={{ maxWidth: '180px', height: '240px', marginTop: '2.4rem' }}
           >
             {userSwiperArray.map((item) => (
               <SwiperSlide>
@@ -81,6 +85,11 @@ export default function User() {
           </Swiper>
         </div>
       </div>
+      <img
+        src="https://i.ibb.co/60S0Tjf/u1.webp"
+        alt=""
+        className={styles.user__footer}
+      />
     </div>
   );
 }
