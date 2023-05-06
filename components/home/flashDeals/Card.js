@@ -11,22 +11,32 @@ export default function FlashCard({ product }) {
         </Link>
         <div className={styles.flash}>
           <MdFlashOn />
-          <span>-{product.discount}</span>
+
+          <span>-{product.discount}%</span>
         </div>
       </div>
-      {/* <div className={styles.card__price}>
-        <span>USD{product.price - product.price / product.discount}$</span>
-        <span>
-          -USD
-          {product.price - (product.price - product.price / product.discount)}$
-        </span>
-      </div> */}
-      {/* <div className={styles.card__bar}>
+      <div className={styles.card__price}>
+        {product.discount > 0 ? (
+          <>
+            <span>
+              ${(product.price - product.price / product.discount).toFixed(2)}
+            </span>
+            <span>
+              -$
+              {(
+                product.price -
+                (product.price - product.price / product.discount)
+              ).toFixed(2)}
+            </span>
+          </>
+        ) : (
+          <span>USD{product.price}$</span>
+        )}
+      </div>
+
+      <div className={styles.card__bar}>
         <div className={styles.card__bar_inner} style={{ width: '75%' }}></div>
         <div className={styles.card__percentage}>{product.sold}%</div>
-      </div> */}
-      <div>
-        <h1>now</h1>
       </div>
     </div>
   );

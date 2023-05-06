@@ -1,6 +1,7 @@
 $blue_color: #2f82ff;
 $gray_color: #f8f8f8;
 $yellow-color: #fac80f;
+$redish-color: #ec483d;
 $orange-color: #f85606;
 $light-error-color: #fd010169;
 $error-color: #ed4337;
@@ -163,6 +164,49 @@ $shadow-2: rgba(99, 99, 99, 0.1) 0px 0px 4px 0px;
 
   .swiper-pagination {
     display: none;
+  }
+}
+.flashDeals__swiper {
+  swiper-slide {
+    img {
+      border: 0 !important;
+      height: 320px !important;
+    }
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: 37%;
+  }
+}
+.flashDeals__swiper {
+  .swiper-slide img {
+    height: 320px !important;
+    border-radius: 5px;
+    box-shadow: $shadow-1 !important;
+  }
+  .swiper-pagination-bullet {
+    width: 10px !important;
+    height: 10px !important;
+  }
+  .swiper-pagination-bullet-active {
+    background: #f85606 !important;
+    width: 10px !important;
+    height: 10px !important;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #fff !important;
+    transform: scale(0.5) !important;
+    width: 40px !important;
+    height: 60px !important;
+    transition: all 0.2s;
+    background: #66666648;
+  }
+  .swiper-button-prev {
+    left: -13px;
+  }
+  .swiper-button-next {
+    right: -13px;
   }
 }
 
