@@ -18,6 +18,15 @@
       display: flex;
       align-items: center;
     }
+    @media (max-width: 612px) {
+      font-size: 18px;
+    }
+    @media (max-width: 512px) {
+      font-size: 15px;
+    }
+    @media (max-width: 464px) {
+      flex-direction: column;
+    }
   }
   &__list {
     display: flex;
