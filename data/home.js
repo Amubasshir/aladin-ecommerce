@@ -215,3 +215,27 @@ export const menuArrays = [
     images: [],
   },
 ];
+export const userSwiperArray = [
+  {
+    image:
+      'https://ae01.alicdn.com/kf/S0d9a81f2b51f4077b2ad9ea2b4a9d86f2/ORICO-Type-C-HUB-USB-HUB-3-0-4-Port-Splitter-USB-HUB-Adapter-Expansion-Dock.jpg_220x220xz.jpg_.webp',
+    link: '',
+  },
+  {
+    image:
+      'https://ae01.alicdn.com/kf/S0d9a81f2b51f4077b2ad9ea2b4a9d86f2/ORICO-Type-C-HUB-USB-HUB-3-0-4-Port-Splitter-USB-HUB-Adapter-Expansion-Dock.jpg_220x220xz.jpg_.webp',
+    link: '',
+  },
+  {
+    image: '',
+    link: '',
+  },
+  {
+    image: '',
+    link: '',
+  },
+  {
+    image: '',
+    link: '',
+  },
+];
