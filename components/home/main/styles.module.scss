@@ -3,15 +3,15 @@
   grid-template-columns: 1fr 3fr 1fr;
   gap: 10px;
   grid-template-areas:
-    'menu header header'
     'menu swiper user'
+    'menu offers user'
     'menu offers user';
   .menu {
     grid-area: menu;
     background: #fff;
     border-radius: 10px;
     box-shadow: $shadow-1;
-    height: 580px;
+    height: 570px;
     &__header {
       width: 100%;
       height: 35px;
@@ -49,19 +49,30 @@
       }
     }
   }
-  .header {
-    grid-area: header;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: $shadow-1;
-    height: 40px;
-  }
+  // .header {
+  //   grid-area: header;
+  //   height: 40px;
+  //   display: flex;
+  //   align-items: center;
+  //   ul {
+  //     display: flex;
+  //     align-items: center;
+  //     gap: 1rem;
+  //     li {
+  //       height: 100%;
+  //       display: flex;
+  //       align-items: center;
+  //       font-size: 18px;
+  //       color: $orange-color;
+  //     }
+  //   }
+  // }
   .swiper {
     grid-area: swiper;
     background: #fff;
     border-radius: 10px;
     box-shadow: $shadow-1;
-    height: 300px;
+    height: 320px;
   }
 
   .offers {
@@ -69,7 +80,7 @@
     overflow: hidden;
     background: #fff;
     border-radius: 10px;
-    height: 220px;
+    height: 240px;
     background: url('https://i.ibb.co/1fQhV8g/o1.webp');
     background-repeat: no-repeat;
     background-size: cover;
@@ -80,7 +91,7 @@
     background: #fff;
     border-radius: 10px;
     box-shadow: $shadow-1;
-    height: 530px;
+    height: 570px;
     &__header {
     }
     &__container {
