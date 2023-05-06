@@ -10,7 +10,7 @@ $shadow-1: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 $shadow-2: rgba(99, 99, 99, 0.1) 0px 0px 4px 0px;
 
 .container {
-  max-width: 1700px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 1rem;
 }
@@ -118,6 +118,9 @@ $shadow-2: rgba(99, 99, 99, 0.1) 0px 0px 4px 0px;
 .offers_swiper {
   max-width: 550px;
   transform: translate(30%);
+  @media (max-width: 910px) {
+    transform: translateX(1%);
+  }
   .swiper {
     width: 100%;
     height: 100%;

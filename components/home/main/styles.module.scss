@@ -6,18 +6,64 @@
     'menu swiper user'
     'menu offers user'
     'menu offers user';
+  @media (max-width: 1234px) {
+    grid-template-columns: 1fr 3fr;
+  }
+  @media (max-width: 990px) {
+    grid-template-columns: 80px 3fr;
+  }
+  @media (max-width: 710px) {
+    grid-template-areas:
+      'menu'
+      'swiper'
+      'offers';
+    grid-template-columns: 1fr;
+    .menu {
+      width: 100% !important;
+      height: fit-content !important;
+      &__list {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap;
+        li {
+          transform: translateY(-25px);
+        }
+      }
+    }
+  }
   .menu {
     grid-area: menu;
     background: #fff;
     border-radius: 10px;
     box-shadow: $shadow-1;
     height: 570px;
+    @media (max-width: 990px) {
+      width: 80px;
+      svg {
+        transform: scale(1.5);
+      }
+      &__list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
     &__header {
       width: 100%;
       height: 35px;
       background: $gray-color;
       border-bottom: 1px solid $gray-color;
       box-shadow: $shadow-2;
+      @media (max-width: 990px) {
+        display: none !important;
+        background: none !important;
+        box-shadow: none !important;
+      }
       svg {
         height: 24px;
         width: 24px;
@@ -44,6 +90,11 @@
           svg {
             fill: #8c8484;
             stroke: #8c8484;
+          }
+          span {
+            @media (max-width: 990px) {
+              display: none;
+            }
           }
         }
       }
@@ -84,6 +135,7 @@
     background: url('https://i.ibb.co/1fQhV8g/o1.webp');
     background-repeat: no-repeat;
     background-size: cover;
+    box-shadow: $shadow-1;
   }
   .user {
     position: relative;
@@ -92,6 +144,9 @@
     border-radius: 10px;
     box-shadow: $shadow-1;
     height: 570px;
+    @media (max-width: 1234px) {
+      display: none;
+    }
     &__header {
     }
     &__container {
