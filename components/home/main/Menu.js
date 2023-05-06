@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { BiCategory } from 'react-icons/bi';
+import { GoDeviceDesktop } from 'react-icons/go';
 import { IoIosLaptop } from 'react-icons/io';
 
 import { menuArrays } from '../../../data/home';
@@ -16,12 +17,20 @@ export default function Menu() {
         </li>
         <div className={styles.menu__list}>
           {menuArrays.map((item, i) => (
-            <Link href={item.link} legacyBehavior>
-              <a>
-                {i === 0 ? <IoIosLaptop /> : ''}
-                <span>{item.name}</span>
-              </a>
-            </Link>
+            <li>
+              <Link href={item.link} legacyBehavior>
+                <a>
+                  {i === 0 ? (
+                    <IoIosLaptop />
+                  ) : i === 1 ? (
+                    <GoDeviceDesktop />
+                  ) : (
+                    ''
+                  )}
+                  <span>{item.name}</span>
+                </a>
+              </Link>
+            </li>
           ))}
         </div>
       </ul>

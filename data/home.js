@@ -21,7 +21,7 @@ export const offersArray = [
 export const menuArrays = [
   {
     name: 'Laptop',
-    icon: '',
+    icon: 'IoIosLaptop',
     link: '',
     subMenu: [
       {
@@ -33,7 +33,7 @@ export const menuArrays = [
     images: [],
   },
   {
-    name: '',
+    name: 'Desktop & Brand PC',
     icon: '',
     link: '',
     subMenu: [
