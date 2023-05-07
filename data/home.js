@@ -20,6 +20,19 @@ export const offersArray = [
 ];
 export const menuArrays = [
   {
+    name: 'Desktop & Brand PC',
+    icon: 'GoDeviceDesktop',
+    link: '',
+    subMenu: [
+      {
+        name: '',
+        link: '',
+      },
+    ],
+    brands: [],
+    images: [],
+  },
+  {
     name: 'Laptop',
     icon: 'IoIosLaptop',
     link: '',
@@ -33,8 +46,8 @@ export const menuArrays = [
     images: [],
   },
   {
-    name: 'Desktop & Brand PC',
-    icon: '',
+    name: 'Processors',
+    icon: 'HiOutlineCpuChip',
     link: '',
     subMenu: [
       {
@@ -46,8 +59,8 @@ export const menuArrays = [
     images: [],
   },
   {
-    name: '',
-    icon: '',
+    name: 'Accessories',
+    icon: 'MdOutlineKeyboardAlt',
     link: '',
     subMenu: [
       {
@@ -59,8 +72,8 @@ export const menuArrays = [
     images: [],
   },
   {
-    name: '',
-    icon: '',
+    name: 'Smartphones & Tablet',
+    icon: 'BsPhone',
     link: '',
     subMenu: [
       {
@@ -72,8 +85,8 @@ export const menuArrays = [
     images: [],
   },
   {
-    name: '',
-    icon: '',
+    name: 'Monitor',
+    icon: 'CiMonitor',
     link: '',
     subMenu: [
       {
@@ -85,8 +98,8 @@ export const menuArrays = [
     images: [],
   },
   {
-    name: '',
-    icon: '',
+    name: 'Network & Router',
+    icon: 'BsRouter',
     link: '',
     subMenu: [
       {
@@ -98,8 +111,8 @@ export const menuArrays = [
     images: [],
   },
   {
-    name: '',
-    icon: '',
+    name: 'Gaming Zone',
+    icon: 'IoGameControllerOutline',
     link: '',
     subMenu: [
       {
@@ -111,8 +124,8 @@ export const menuArrays = [
     images: [],
   },
   {
-    name: '',
-    icon: '',
+    name: 'Gadget',
+    icon: 'BsBuildingAdd',
     link: '',
     subMenu: [
       {
@@ -124,8 +137,8 @@ export const menuArrays = [
     images: [],
   },
   {
-    name: '',
-    icon: '',
+    name: 'Cameras',
+    icon: 'RiCameraSwitchLine',
     link: '',
     subMenu: [
       {
@@ -137,8 +150,8 @@ export const menuArrays = [
     images: [],
   },
   {
-    name: '',
-    icon: '',
+    name: 'Projector & Screen',
+    icon: 'BsProjector',
     link: '',
     subMenu: [
       {
@@ -150,8 +163,8 @@ export const menuArrays = [
     images: [],
   },
   {
-    name: '',
-    icon: '',
+    name: 'TV & Speaker',
+    icon: 'CiSpeaker',
     link: '',
     subMenu: [
       {
@@ -163,8 +176,8 @@ export const menuArrays = [
     images: [],
   },
   {
-    name: '',
-    icon: '',
+    name: 'IPS/UPS',
+    icon: 'SiUps',
     link: '',
     subMenu: [
       {
@@ -176,8 +189,8 @@ export const menuArrays = [
     images: [],
   },
   {
-    name: '',
-    icon: '',
+    name: 'Home Appliance',
+    icon: 'CgSmartHomeWashMachine',
     link: '',
     subMenu: [
       {
@@ -189,8 +202,8 @@ export const menuArrays = [
     images: [],
   },
   {
-    name: '',
-    icon: '',
+    name: 'AC & Cooler',
+    icon: 'GiCooler',
     link: '',
     subMenu: [
       {
@@ -202,8 +215,8 @@ export const menuArrays = [
     images: [],
   },
   {
-    name: '',
-    icon: '',
+    name: 'Office Equipments',
+    icon: 'SiMicrosoftoffice',
     link: '',
     subMenu: [
       {
