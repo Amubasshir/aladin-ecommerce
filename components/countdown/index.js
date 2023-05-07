@@ -1,15 +1,43 @@
+import { useEffect, useState } from 'react';
+import { calculateDiff } from './calculateDiff';
 import styles from './styles.module.scss';
-export default function Countdown() {
+const defaultRemainingTime = {
+  seconds: '00',
+  minutes: '00',
+  hours: '00',
+  days: '00',
+};
+
+export default function Countdown({ date }) {
+  const [timeInMs, setTimeInMs] = useState(date.getTime());
+  const [remainingTime, setRemainingTime] = useState();
+  useEffect(() => {
+    setTimeInMs(date.getTime());
+  }, [date]);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      updatedRemainingTime(timeInMs);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [timeInMs]);
+
+  const updatedRemainingTime = (timeInMs) => {
+    setRemainingTime(calculateDiff(timeInMs));
+  };
   return (
     <div className={styles.countdown}>
-      <span>1</span>
-      <span>1</span>
+      {[...Array(remainingTime?.days.length).keys()].map((day, i) => (
+        <span>{remainingTime?.days.slice(i, i + 1)}</span>
+      ))}
       <b>:</b>
-      <span>2</span>
-      <span>7</span>
+      <span>{remainingTime?.hours.slice(0, 1)}</span>
+      <span>{remainingTime?.hours.slice(1, 2)}</span>
       <b>:</b>
-      <span>0</span>
-      <span>7</span>
+      <span>{remainingTime?.minutes.slice(0, 1)}</span>
+      <span>{remainingTime?.minutes.slice(1, 2)}</span>
+      <b>:</b>
+      <span>{remainingTime?.seconds.slice(0, 1)}</span>
+      <span>{remainingTime?.seconds.slice(1, 2)}</span>
     </div>
   );
 }
